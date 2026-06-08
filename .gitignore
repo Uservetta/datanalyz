@@ -1,0 +1,8 @@
+# Игнорируем виртуальное окружение Python
+venv
+.venv
+ENV
+
+# Игнорируем кэш Python
+__pycache__
+.pyc
