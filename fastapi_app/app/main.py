@@ -4,6 +4,8 @@ from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 from app.init_dependencies import init_dependencies
 from app.routes.config import router as config_router
+#импорт для 8лабы
+from app.territories.router import router as territories_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -16,9 +18,9 @@ async def lifespan(app: FastAPI):
 # Создаем приложение и передаем статические метаданные
 app = FastAPI(
     lifespan=lifespan,
-    title=os.environ.get("APP_NAME", "Laboratory FastAPI App v6"),
-    description=os.environ.get("APP_DESCRIPTION", "Учебное приложение с Pydantic и DI"),
-    version=os.environ.get("APP_VERSION", "2.0.0")
+    title=os.environ.get("APP_NAME", "Urban Territories CRUD Service (Lab 8)"),
+    description=os.environ.get("APP_DESCRIPTION", "Учебное приложение с Pydantic, DI и поддержкой PostGIS"),
+    version=os.environ.get("APP_VERSION", "3.0.0")
 )
 
 # Редирект с корня на документацию
@@ -26,5 +28,10 @@ app = FastAPI(
 async def get_root():
     return RedirectResponse("/docs")
 
-# ПОДКЛЮЧАЕМ РОУТЕР К ПРИЛОЖЕНИЮ, ЧТОБЫ ОН ПОЯВИЛСЯ В SWAGGER
+# --- ПОДКЛЮЧАЕМ РОУТЕРЫ К ПРИЛОЖЕНИЮ ---
+
+# Старый роутер из прошлых лаб
 app.include_router(config_router)
+
+# Новый роутер территорий и пространственных данных
+app.include_router(territories_router)
