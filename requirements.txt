@@ -3,3 +3,4 @@ numpy==1.26.4
 geopandas==0.14.3
 loguru==0.7.2
 pre-commit==3.5.0
+numpy==1.26.4
