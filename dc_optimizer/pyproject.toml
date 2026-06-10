@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "dc-optimizer"
+version = "0.1.0"
+description = "Библиотека для оптимизации размещения ЦОД на промышленных территориях"
+authors = ["Liza <your_email@example.com>"]
+readme = "README.md"
+packages = [{include = "dc_optimizer", from = "src"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+geopandas = "^1.1.3"
+loguru = "^0.7.3"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "pre-commit (>=4.6.0,<5.0.0)"
+]
