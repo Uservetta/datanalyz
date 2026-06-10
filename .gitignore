@@ -1,3 +1,11 @@
+# Игнорируем виртуальное окружение Python
+venv
+.venv
+ENV
+
+# Игнорируем кэш Python
+__pycache__
+.pyc
 # Byte-compiled / optimized files
 __pycache__/
 *.py[cod]
